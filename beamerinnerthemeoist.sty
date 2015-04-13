@@ -1,0 +1,30 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}[remember picture, overlay]
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \node[inner sep=0pt, outer sep = 0pt] (bg) at (current page.center) {\includegraphics[width = \the\paperwidth, height = \the\paperheight]{bg_page}};
+
+  \node[align = right, inner sep=0pt, outer sep = 0pt, anchor = south east, yshift = 10pt, xshift = -5pt] (date) at (bg.south east) {\footnotesize \usebeamerfont{date in head/foot} \insertframenumber};
+
+  \node[align = left, inner sep=0pt, outer sep = 0pt, left = 0.5 of date, anchor = east] {\footnotesize \usebeamerfont{author in head/foot} \insertshortauthor \hspace*{1em} \insertshortdate};
+
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{oist}[1][]
+{   
+
+  \begin{tikzpicture}[remember picture, overlay]
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \coordinate (center) at (current page.center);
+      \node[inner sep=0pt, outer sep=0pt] at (center) {\includegraphics[width = \the\paperwidth, height = \the\paperheight]{bg_titlepage}};
+
+      \node[align = center, inner sep=0pt, outer sep=0pt, anchor = south, above of = center] (title) {\usebeamerfont{title}\inserttitle};
+      \node[align = center, inner sep=0pt, outer sep=0pt, anchor = north] (author) at (center) {\usebeamerfont{author}\insertauthor};
+      \node[align = center, inner sep=0pt, outer sep=0pt, anchor = north, below of = author]  {\usebeamerfont{date}\insertdate};
+  \end{tikzpicture}
+}
+
+\mode<all>

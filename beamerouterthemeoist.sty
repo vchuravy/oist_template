@@ -1,0 +1,16 @@
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{oist}[1][]
+{
+\usebeamerfont{frametitle}
+\vskip1em%
+   \ifx\insertframesubtitle\@empty%
+      \insertframetitle
+   \else%
+      \insertframetitle \hskip1em\vskip.5em
+      \small\insertframesubtitle
+   \fi
+}
+
+\mode<all>
